@@ -337,8 +337,9 @@ div#form {
 You can learn more about potential ways forward at any time using the (text-colour:#D3E547)[Help] function.], &quot;OK&quot;)(go-to: $room&#39;s last)]](else:)[You can use it to learn more about potential ways forward at any time from the (text-colour:#D3E547)[Help] function.]</tw-passagedata><tw-passagedata pid="16" name="Help" tags="" position="350,450" size="100,100">{=(if: $doorsUnlocked&#39;s 1st is 1)[
 	(if: $metTom is 1)[
 		(set: $currentHint to 4)
-    ](else-if: $tomTalk is &quot;LABMECH5&quot;)[
-    	(set: $currentHint to 1)
+    ]
+    (if: $tomTalk is &quot;LABMECH5&quot;)[
+    	(set: $currentHint to 9)
     ]
 ]
 
@@ -352,6 +353,10 @@ You can learn more about potential ways forward at any time using the (text-colo
 	](else:)[
     	(set: $currentHint to 5)
     ]
+]
+
+(if: $doorsUnlocked&#39;s 3rd is 1)[
+	(set: $currentHint to 10)
 ]
 
 (if: $room&#39;s last is &quot;somb&quot; and $areaScan&#39;s $room&#39;s last is 1)[(set: $currentHint to 3)]
